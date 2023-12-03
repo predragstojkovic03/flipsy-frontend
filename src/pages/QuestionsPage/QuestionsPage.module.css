@@ -1,74 +1,75 @@
-.container{
-    height: 100vh;
-    background-color: #49688d;
-    position: relative;
+.container {
+  height: 100vh;
+  background-color: #49688d;
+  position: relative;
 }
 
-.papercut > img{
-    position: absolute;
-    height: 20vh;
-    width: 40vh;
-    top: -8%;
-    right: -15%;
+.papercut > img {
+  position: absolute;
+  height: 20vh;
+  width: 40vh;
+  top: -8%;
+  right: -15%;
 }
 
-.back{
-    height: 10vh;
-    display: flex;
-    align-items: center;
-    padding-left: 16px;
+.back {
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  padding-left: 16px;
 }
-.backButton{
-    height: 48px;
-    width: 48px;
-    background-color: #db6696;
-    border-style: solid;
-    border-color: #e1e1e1;
-    border-radius: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.backButton {
+  height: 48px;
+  width: 48px;
+  background-color: #db6696;
+  border-style: solid;
+  border-color: #e1e1e1;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.subject{
-    height: 18vh;
-    color: #e1e1e1;
-    display: flex;
-    align-items: center;
-    padding-left: 32px;
-    padding-right: 32px;
+.subject {
+  height: 18vh;
+  color: #e1e1e1;
+  display: flex;
+  align-items: center;
+  padding-left: 32px;
+  padding-right: 32px;
 }
-.flipcardDiv{
-    height: 72vh;
-    background-color: #e1e1e1;
-    border-top-left-radius: 64px;
-    border-top-right-radius: 64px;
-    display: flex;
-    flex-direction: column;
-    padding: 48px;
+.flipcardDiv {
+  height: 72vh;
+  background-color: #e1e1e1;
+  border-top-left-radius: 64px;
+  border-top-right-radius: 64px;
+  display: flex;
+  flex-direction: column;
+  padding: 48px;
 }
-.flipcardUp{
-    background-color: #49688d;
-    height: 60%;
-    border-radius: 64px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 48px;
-    color: #e1e1e1;
+.flipcardUp {
+  background-color: #49688d;
+  height: 60%;
+  border-radius: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+  color: #e1e1e1;
+  font-size: 28px;
 }
-.flipcardDown{
-    height: 30%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: #49688d;
+.flipcardDown {
+  height: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #49688d;
 }
-.flipcardButtons{
-    height: 64px;
-    width: 64px;
-    background-color: #49688d;
-    border-radius: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.flipcardButtons {
+  height: 64px;
+  width: 64px;
+  background-color: #49688d;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
