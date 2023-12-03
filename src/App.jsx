@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import FieldPicker from './pages/HomePage/FieldPicker/FieldPicker';
 import HomePage from './pages/HomePage/HomePage';
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element={<HomePage />} />
+          <Route path='/biranje-smera' element={<FieldPicker />} />
         </Routes>
       </Router>
     </>
