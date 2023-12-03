@@ -6,7 +6,7 @@ import redo from '../../assets/redo.svg';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import baseUrl from '../../services/api/baseUrl';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import useLocalStorage from '../../hooks/useLocalStorage';
 
 const QuestionsPage = () => {

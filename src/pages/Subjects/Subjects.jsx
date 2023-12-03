@@ -11,7 +11,7 @@ import styles from './Subjects.module.css';
 
 import slika from '../../assets/image.png';
 import slika1 from '../../assets/papercut1.png';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import useLocalStorage from '../../hooks/useLocalStorage';
 
 const Subjects = () => {
