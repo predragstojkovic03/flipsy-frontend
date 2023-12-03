@@ -34,13 +34,10 @@ const QuestionsPage = () => {
   }, []);
 
   const nextQuestion = () => {
-    console.log(index);
     setIndex((index) => (index >= questions.length - 1 ? 0 : index + 1));
   };
 
   const previousQuestion = () => {
-    console.log(index);
-
     setIndex((index) => (index <= 0 ? questions.length - 1 : index - 1));
   };
 
