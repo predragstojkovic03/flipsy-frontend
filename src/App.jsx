@@ -8,8 +8,7 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route path='/' element={<HomePage />} />
-          <Route path='/biranje-smera' element={<FieldPicker />} />
+          <Route path='/' element={<FieldPicker />} />
           <Route path='/login' element={<Login />} />
         </Routes>
       </Router>
