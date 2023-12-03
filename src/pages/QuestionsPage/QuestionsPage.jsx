@@ -1,44 +1,89 @@
-import styles from './QuestionsPage.module.css'
-import papercut from '../../assets/papercut1.png'
-import arrow from '../../assets/arrow-left2.svg'
-import undo from '../../assets/undo.svg'
-import redo from '../../assets/redo.svg'
-
+import styles from './QuestionsPage.module.css';
+import papercut from '../../assets/papercut1.png';
+import arrow from '../../assets/arrow-left2.svg';
+import undo from '../../assets/undo.svg';
+import redo from '../../assets/redo.svg';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import baseUrl from '../../services/api/baseUrl';
+import { useNavigate } from 'react-router-dom';
 
 const QuestionsPage = () => {
-    return (
-        <main>
-            <div className = {styles.container}>
-                <div className = {styles.papercut}>
-                    <img src = {papercut} />
-                </div>
-                <div className = {styles.back}>
-                    <a className = {styles.backButton} href=''>
-                        <img src = {arrow} />
-                    </a>
-                </div>
-                <div className = {styles.subject}>
-                    EKONOMIJA
-                </div>
-                <div className = {styles.flipcardDiv}>
-                    <div className = {styles.flipcardUp}>
-                        NAJSBD JDNSJL JHF IOIDALJFLAJ KLKAD I ABSDKB JOADBFJOASNOD JNAS JOJANFO ONASND?
-                    </div>
-                    <div className = {styles.flipcardDown}>
-                        <div className = {styles.flipcardButtons}>
-                            <img src = {undo} />
-                        </div>
-                        <div>
-                            1 / 100
-                        </div>
-                        <div className = {styles.flipcardButtons}>
-                            <img src = {redo} />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
-    )
-}
+  const [questions, setQuestions] = useState([]);
+  const [index, setIndex] = useState(0);
+  const [showAnswer, setShowAnswer] = useState(false);
 
-export default QuestionsPage
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setShowAnswer(false);
+  }, [index]);
+
+  useEffect(() => {
+    const fetchQuestions = async () => {
+      const { data } = await axios.get(
+        `${baseUrl}/api/subjects/656bb60c1bd97c0654b31adb/questions`
+      );
+
+      setQuestions(data.questions);
+      console.log(data.questions);
+    };
+
+    fetchQuestions();
+  }, []);
+
+  const nextQuestion = () => {
+    setIndex((index) => (index >= questions.length ? 0 : index + 1));
+  };
+
+  const previousQuestion = () => {
+    setIndex((index) => (index <= 0 ? questions.length - 1 : index - 1));
+  };
+
+  return (
+    <main>
+      <div className={styles.container}>
+        <div className={styles.papercut}>
+          <img src={papercut} />
+        </div>
+        <div className={styles.back}>
+          <a
+            className={styles.backButton}
+            onClick={() => navigate('/predmeti')}
+          >
+            <img src={arrow} />
+          </a>
+        </div>
+        <div className={styles.subject}>PITANJA</div>
+        {questions.length && (
+          <div className={styles.flipcardDiv}>
+            <div
+              className={styles.flipcardUp}
+              onClick={() => setShowAnswer(!showAnswer)}
+            >
+              {showAnswer
+                ? questions[index].answer
+                : questions[index].questionText}
+            </div>
+            <div className={styles.flipcardDown}>
+              <div
+                className={styles.flipcardButtons}
+                onClick={previousQuestion}
+              >
+                <img src={undo} />
+              </div>
+              <div>
+                {index + 1} / {questions.length}
+              </div>
+              <div className={styles.flipcardButtons} onClick={nextQuestion}>
+                <img src={redo} />
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    </main>
+  );
+};
+
+export default QuestionsPage;
