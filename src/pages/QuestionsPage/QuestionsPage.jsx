@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import baseUrl from '../../services/api/baseUrl';
 import { useNavigate } from 'react-router-dom';
+import useLocalStorage from '../../hooks/useLocalStorage';
 
 const QuestionsPage = () => {
   const [questions, setQuestions] = useState([]);
@@ -33,12 +34,19 @@ const QuestionsPage = () => {
   }, []);
 
   const nextQuestion = () => {
-    setIndex((index) => (index >= questions.length ? 0 : index + 1));
+    console.log(index);
+    setIndex((index) => (index >= questions.length - 1 ? 0 : index + 1));
   };
 
   const previousQuestion = () => {
+    console.log(index);
+
     setIndex((index) => (index <= 0 ? questions.length - 1 : index - 1));
   };
+
+  const [user, setUser] = useLocalStorage('user', null);
+
+  if (!user) return <Navigate to='/login' />;
 
   return (
     <main>
